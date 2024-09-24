@@ -92,5 +92,80 @@ function parsePostDate(timeText) {
   }
 
   if (match) {
-    
+    const value = parseInt(match[1]);
+    const unit = match[2].toLowerCase();
+    let multiplier = 0;
+
+    switch (unit) {
+      case 's':
+      case 'second':
+        multiplier = 1000;
+        break;
+      case 'm':
+      case 'minute':
+        multiplier = 60 * 1000;
+        break;
+      case 'h':
+      case 'hour':
+        multiplier = 60 * 60 * 1000;
+        break;
+      case 'd':
+      case 'day':
+        multiplier = 24 * 60 * 60 * 1000;
+        break;
+      case 'w':
+      case 'week':
+        multiplier = 7 * 24 * 60 * 60 * 1000;
+        break;
+      case 'mo':
+      case 'month':
+        multiplier = 30 * 24 * 60 * 60 * 1000;
+        break;
+      case 'y':
+      case 'year':
+        multiplier = 365 * 24 * 60 * 60 * 1000;
+        break;
+      default:
+        return null;
+    }
+
+    return new Date(Date.now() - value * multiplier);
+  }
+  return null;
+}
+
+// Function to initialize the cleaning process
+function init() {
+  if (!isOnMainFeed()) {
+    // If not on the main feed page, do nothing
+    return;
+  }
+
+  // Initial execution
+  removeLinkedInNews();
+  removeAdBanners();
+  cleanFeed();
+
+  // Observe changes in the feed to handle dynamic content loading
+  const observer = new MutationObserver(() => {
+    removeLinkedInNews();
+    removeAdBanners();
+    cleanFeed();
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+// Handle SPA navigation by detecting URL changes
+let lastUrl = location.href;
+new MutationObserver(() => {
+  const url = location.href;
+  if (url !== lastUrl) {
+    lastUrl = url;
+    init();
+  }
+}).observe(document.body, { childList: true, subtree: true });
+
+// Run the initialization function
+init();
 

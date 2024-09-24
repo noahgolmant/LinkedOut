@@ -9,8 +9,11 @@
 - Removes the "LinkedIn News" section.
 - Removes "Promoted" posts.
 - Removes ad banners on the side of the feed.
+- Removes suggested jobs.
 
-It was written entirely by ChatGPT O-1 (thread [here](https://chatgpt.com/share/66f32a3a-4fd0-8001-baa9-742b5c9a78df)).
+It was written entirely by ChatGPT O-1 (thread [here](https://chatgpt.com/share/66f32a3a-4fd0-8001-baa9-742b5c9a78df)). If it starts breaking due to updated page layout, I'd recommend just pasting some updated source HTML into the chat to fix it.
+
+This is potentially against LinkedIn's terms of service. So definitely do not use this!
 
 ## Features
 
@@ -20,11 +23,15 @@ It was written entirely by ChatGPT O-1 (thread [here](https://chatgpt.com/share/
 
 ## Installation
 
-Follow these simple steps to install the LinkedIn Feed Cleaner extension:
+Follow these simple steps to install the **LinkedOut** extension:
 
 1. **Download or Clone the Repository**
 
-   - Download the extension files or clone the repository to your local machine. You can do this with e.g. `git clone https://github.com/noahgolmant/LinkedOut.git`.
+   - Download the extension files or clone the repository to your local machine. You can do this with:
+
+     ```bash
+     git clone https://github.com/noahgolmant/LinkedOut.git
+     ```
 
 2. **Open Chrome Extensions Page**
 
@@ -58,9 +65,7 @@ Follow these simple steps to install the LinkedIn Feed Cleaner extension:
 
 For a visual guide on how to install and use the extension, please watch the video tutorial:
 
-[Watch the Video Tutorial](#)
-
-*(Replace the placeholder link above with your Loom video link.)*
+[Watch the Video Tutorial](https://www.loom.com/share/5288a5cfd8c548328e991a5c237dcad3?sid=a2e10a55-2e2a-468b-9900-857e5af61941)
 
 ## Contributing
 
@@ -69,3 +74,4 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+

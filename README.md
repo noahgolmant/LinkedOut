@@ -58,9 +58,7 @@ Follow these simple steps to install the LinkedIn Feed Cleaner extension:
 
 For a visual guide on how to install and use the extension, please watch the video tutorial:
 
-[Watch the Video Tutorial](#)
-
-*(Replace the placeholder link above with your Loom video link.)*
+[Watch the Video Tutorial](https://www.loom.com/share/5288a5cfd8c548328e991a5c237dcad3?sid=a2e10a55-2e2a-468b-9900-857e5af61941)
 
 ## Contributing
 

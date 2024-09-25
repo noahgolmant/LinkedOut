@@ -31,33 +31,33 @@ function cleanFeed() {
       return;
     }
 
-    // Remove "Suggested" posts
-    if (
-      post.innerText.includes('Suggested for you') ||
-      post.innerText.includes('Suggested') ||
-      post.innerText.includes('People also viewed')
-    ) {
-      post.remove();
-      return;
-    }
-
     // Remove LinkedIn Ads and Promotions
     if (post.querySelector('.update-components-promo-v1__text-container')) {
       post.remove();
       return;
     }
 
-    // Remove "Jobs recommended for you" and "Contributed to this" posts
+    // Remove "Suggested" posts
     const headerTextElement = post.querySelector('.update-components-header__text-view');
     if (headerTextElement) {
       const headerText = headerTextElement.innerText.trim().toLowerCase();
       if (
+        headerText === 'suggested' || // Added this condition
         headerText === 'jobs recommended for you' ||
         headerText.includes('contributed to this')
       ) {
         post.remove();
         return;
       }
+    }
+
+    // Remove "Suggested for you" and "People also viewed" posts
+    if (
+      post.innerText.includes('Suggested for you') ||
+      post.innerText.includes('People also viewed')
+    ) {
+      post.remove();
+      return;
     }
 
     // Only show posts from the last week
